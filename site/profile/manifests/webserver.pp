@@ -5,7 +5,7 @@ class profile::webserver {
 	<body>
 		<h1>Hello World!</h1>
   	</body>		
-	</html>"
+</html>"
 
 	file {  '/var/www/html/index.html':
 		content => $index_content,
