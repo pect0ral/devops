@@ -7,6 +7,8 @@ class profile::base {
   package { 'git':
     ensure => installed,
   }
-
+  package {'php':
+    ensure => installed,
+ }
 }
 
