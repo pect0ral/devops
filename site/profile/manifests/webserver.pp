@@ -18,12 +18,12 @@ class { '::apache':
 }
 class {'::firewall': }
 
-::firewall { '100 allow http and https access':
+firewall { '100 allow http and https access':
     dport   => [80, 443],
     proto  => tcp,
     action => accept,
   }
-::firewall { '200 allow ssh access':
+firewall { '200 allow ssh access':
     dport   => 22,
     proto  => tcp,
     action => accept,
