@@ -18,9 +18,15 @@ class { '::apache':
 }
 class {'::firewall': }
 
-firewall { '010 allow local stuff':
-    interface => lo,
-    action => accept,
+firewall { '010 related':
+    state => [ 'ESTABLISHED', 'RELATED' ],
+    action => 'accept',
+    proto => 'all',
+}
+
+firewall { '050 allow local stuff':
+    interface => 'lo',
+    action => 'accept',
 }
 
 firewall { '100 allow http and https access':
