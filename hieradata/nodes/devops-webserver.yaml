@@ -1,0 +1,9 @@
+classes:
+ - 'profile::base'
+ - 'profile::packages'
+ - 'profile::tester'
+
+ntp::servers:
+  - 0.us.pool.ntp.org
+  - 1.us.pool.ntp.org
+
