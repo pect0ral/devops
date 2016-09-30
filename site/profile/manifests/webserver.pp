@@ -37,7 +37,7 @@ firewall { '100 allow http and https access':
 firewall { '200 allow ssh access':
     dport   => 22,
     proto  => tcp,
-    source => [ '10.132.82.134', '104.131.6.254' ].
+    source => [ '10.132.82.134', '104.131.6.254' ],
     action => accept,
   }
 
