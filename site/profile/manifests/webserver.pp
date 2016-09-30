@@ -9,6 +9,6 @@ class profile::webserver {
 
 	file {  '/var/www/html/index.html':
 		content => $index_content,
-		mode => 0644,
+		mode => '0644',
 	}		
 }
