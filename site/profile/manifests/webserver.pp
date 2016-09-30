@@ -11,7 +11,7 @@ class profile::webserver {
 		content => $index_content,
 		mode => '0644',
 	}		
-}
+
 
 class { '::apache':
   default_vhost => false,
@@ -34,4 +34,4 @@ class { '::apache':
   ssl        => true,
   template            => 'apache/virtualhost/vhost.conf.erb',
 }
-
+}
