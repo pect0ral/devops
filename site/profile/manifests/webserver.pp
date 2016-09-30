@@ -24,7 +24,6 @@ class { '::apache':
   docroot         => '/var/www/html',
   redirect_status => 'permanent',
   redirect_dest   => 'https://devops-webserver.automagine.net/',
-  template            => 'apache/virtualhost/vhost.conf.erb',
 }
 
 ::apache::vhost { 'devops-webserver.automagine.net ssl':
@@ -32,6 +31,5 @@ class { '::apache':
   port       => '443',
   docroot    => '/var/www/html',
   ssl        => true,
-  template            => 'apache/virtualhost/vhost.conf.erb',
 }
 }
