@@ -17,8 +17,24 @@ class { '::apache':
   default_vhost => false,
 }
 
+::firewall { '100 allow http and https access':
+    dport   => [80, 443],
+    proto  => tcp,
+    action => accept,
+  }
+::firewall { '200 allow ssh access':
+    dport   => 22,
+    proto  => tcp,
+    action => accept,
+  }
+::firewallchain { 'INPUT:filter:IPv4':
+  ensure => present,
+  policy => drop,
+  before => undef,
+}
 
-::apache::vhost { 'devops-webserver.automagine.net non-ssl':
+
+::apache::vhost { 'devops-webserver.automagene.net non-ssl':
   servername      => 'devops-webserver.automagine.net',
   port            => '80',
   docroot         => '/var/www/html',
