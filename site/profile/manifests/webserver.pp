@@ -17,7 +17,7 @@ class { '::apache':
   default_vhost => false,
 }
 class {'::firewall': }
-class {'::firewallchain': }
+class {'firewallchain': }
 
 ::firewall { '100 allow http and https access':
     dport   => [80, 443],
@@ -29,7 +29,7 @@ class {'::firewallchain': }
     proto  => tcp,
     action => accept,
   }
-::firewallchain { 'INPUT:filter:IPv4':
+firewallchain { 'INPUT:filter:IPv4':
   ensure => present,
   policy => drop,
   before => undef,
