@@ -18,6 +18,11 @@ class { '::apache':
 }
 class {'::firewall': }
 
+firewall { '010 allow local stuff':
+    interface => lo,
+    action => accept,
+}
+
 firewall { '100 allow http and https access':
     dport   => [80, 443],
     proto  => tcp,
