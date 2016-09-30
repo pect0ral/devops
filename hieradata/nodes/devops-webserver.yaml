@@ -3,6 +3,8 @@ classes:
  - 'profile::packages'
  - 'profile::tester'
  - 'profile::webserver'
+ - 'apache'
+ - 'apache::vhost'
 
 ntp::servers:
   - 0.us.pool.ntp.org
