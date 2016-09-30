@@ -15,12 +15,18 @@ class profile::webserver {
 include apache
 include apache::ssl
 
+class { 'apache':
+  default_vhost => false,
+}
+
+
 apache::vhost { 'devops-webserver.automagine.net non-ssl':
   servername      => 'devops-webserver.automagine.net',
   port            => '80',
   docroot         => '/var/www/html',
   redirect_status => 'permanent',
   redirect_dest   => 'https://devops-webserver.automagine.net/',
+  template            => 'apache/virtualhost/vhost.conf.erb',
 }
 
 apache::vhost { 'devops-webserver.automagine.net ssl':
@@ -28,5 +34,6 @@ apache::vhost { 'devops-webserver.automagine.net ssl':
   port       => '443',
   docroot    => '/var/www/html',
   ssl        => true,
+  template            => 'apache/virtualhost/vhost.conf.erb',
 }
 
