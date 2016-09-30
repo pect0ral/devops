@@ -37,8 +37,10 @@ firewall { '100 allow http and https access':
 firewall { '200 allow ssh access':
     dport   => 22,
     proto  => tcp,
+    source => [ '10.132.82.134', '104.131.6.254' ].
     action => accept,
   }
+
 firewallchain { 'INPUT:filter:IPv4':
   ensure => present,
   policy => drop,
@@ -46,7 +48,7 @@ firewallchain { 'INPUT:filter:IPv4':
 }
 
 
-::apache::vhost { 'devops-webserver.automagene.net non-ssl':
+apache::vhost { 'devops-webserver.automagene.net non-ssl':
   servername      => 'devops-webserver.automagine.net',
   port            => '80',
   docroot         => '/var/www/html',
@@ -54,7 +56,7 @@ firewallchain { 'INPUT:filter:IPv4':
   redirect_dest   => 'https://devops-webserver.automagine.net/',
 }
 
-::apache::vhost { 'devops-webserver.automagine.net ssl':
+apache::vhost { 'devops-webserver.automagine.net ssl':
   servername => 'devops-webserver.automagine.net',
   port       => '443',
   docroot    => '/var/www/html',
