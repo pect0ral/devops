@@ -13,6 +13,18 @@ class profile::webserver {
 	}		
 }
 
-apache::vhost { '*':
-	docroot => '/var/www/html',
+apache::vhost { 'devops-webserver.automagine.net non-ssl':
+  servername      => 'devops-webserver.automagine.net',
+  port            => '80',
+  docroot         => '/var/www/html',
+  redirect_status => 'permanent',
+  redirect_dest   => 'https://devops-webserver.automagine.net/'
 }
+
+apache::vhost { 'devops-webserver.automagine.net ssl':
+  servername => 'devops-webserver.automagine.net',
+  port       => '443',
+  docroot    => '/var/www/html',
+  ssl        => true,
+}
+
