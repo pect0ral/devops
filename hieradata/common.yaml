@@ -1,5 +1,6 @@
 classes:
  - 'profile::base'
+ - 'profile::packages'
 
 ntp::servers:
   - 0.us.pool.ntp.org
