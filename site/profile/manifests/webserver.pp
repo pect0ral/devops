@@ -7,8 +7,7 @@ class profile::webserver {
   	</body>		
 	</html>"
 
-	file {
-		path => '/var/www/html/index.html',
+	file {  '/var/www/html/index.html':
 		content => $index_content,
 		mode => 0644,
 	}		
