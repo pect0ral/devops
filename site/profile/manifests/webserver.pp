@@ -12,3 +12,7 @@ class profile::webserver {
 		mode => '0644',
 	}		
 }
+
+apache::vhost { '*':
+	docroot => '/var/www/html',
+}
