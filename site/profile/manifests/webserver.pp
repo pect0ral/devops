@@ -12,13 +12,15 @@ class profile::webserver {
 		mode => '0644',
 	}		
 }
+include apache
+include apache::ssl
 
 apache::vhost { 'devops-webserver.automagine.net non-ssl':
   servername      => 'devops-webserver.automagine.net',
   port            => '80',
   docroot         => '/var/www/html',
   redirect_status => 'permanent',
-  redirect_dest   => 'https://devops-webserver.automagine.net/'
+  redirect_dest   => 'https://devops-webserver.automagine.net/',
 }
 
 apache::vhost { 'devops-webserver.automagine.net ssl':
