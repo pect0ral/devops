@@ -25,7 +25,7 @@ firewall { '010 related':
 }
 
 firewall { '050 allow local stuff':
-    interface => 'lo',
+    iniface => 'lo',
     action => 'accept',
 }
 
