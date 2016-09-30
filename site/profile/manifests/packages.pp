@@ -1,3 +1,4 @@
+class profile::packages {
 package { 'lsof':
   ensure => installed,
 }
@@ -8,4 +9,4 @@ package { 'git':
 package {'php':
   ensure => installed,
 }
-
+}
